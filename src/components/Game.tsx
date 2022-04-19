@@ -11,13 +11,14 @@ import ResetButtons from "./elements/ResetButtons"
 import ShowdownStage from "./stages/ShowdownStage"
 import ConfigStage from "./stages/ConfigStage"
 import RevealStage from "./stages/RevealStage"
+import GithubButton from "./elements/GithubButton"
 
 function Game() {
 	const game = useGame()
 
 	return (
 		<Layout>
-			<div className="flex justify-between mb-2 sm:mb-4">
+			<div className="flex justify-between gap-2 mb-2 sm:mb-4">
 				{game.state.stage !== "config" ? (
 					<SecondaryButton onClick={game.resetConfig}>
 						<FontAwesomeIcon icon={faHome} />
@@ -25,7 +26,10 @@ function Game() {
 				) : (
 					<div></div>
 				)}
-				<DarkModeButton />
+				<div className="flex gap-2">
+					<GithubButton />
+					<DarkModeButton />
+				</div>
 			</div>
 
 			{game.state.stage === "config" && (
