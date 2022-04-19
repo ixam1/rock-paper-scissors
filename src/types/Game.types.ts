@@ -1,4 +1,4 @@
-import React from "react"
+import { ReactNode } from "react"
 
 export type GameConfiguration = {
 	title: string
@@ -24,7 +24,7 @@ export type GameState = {
 export type ConfigHistory = CurrentGameState[]
 
 export type Player = {
-	name: React.ReactNode
+	name: ReactNode
 	pickAction: ({
 		setAction,
 		actions,
