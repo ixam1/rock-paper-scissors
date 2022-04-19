@@ -2,6 +2,8 @@
 
 A simple Rock Paper Scissors Game, with easily extendable game modes.
 
+[View Demo](https://rock-paper-scissors-ms.netlify.app/)
+
 ## Main Stack
 
 - React
