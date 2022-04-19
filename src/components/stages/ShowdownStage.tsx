@@ -41,8 +41,12 @@ function ShowdownStage({
 
 	return (
 		<>
-			<div className="grid grid-cols-3 place-items-center">
+			<div className="flex items-center justify-center mb-4 place-items-center">
 				<div>
+					<div className="text-[0.5rem] sm:text-xs font-bold text-center">
+						{state.config?.player1.name} picked{" "}
+						<span className="sr-only">{state.player1Pick?.name}</span>
+					</div>
 					<ActionCard
 						front={
 							!card1IsFlipped && (
@@ -59,8 +63,14 @@ function ShowdownStage({
 						flipped={card1IsFlipped}
 					/>
 				</div>
-				<div className="px-10 text-3xl italic font-bold text-center">VS</div>
+				<div className="px-6 text-xl italic font-bold text-center sm:px-10 sm:text-3xl">
+					VS
+				</div>
 				<div>
+					<div className="text-[0.5rem] sm:text-xs font-bold text-center">
+						{state.config?.player2.name} picked{" "}
+						<span className="sr-only">{state.player2Pick?.name}</span>
+					</div>
 					<ActionCard
 						front={
 							!card2IsFlipped && (

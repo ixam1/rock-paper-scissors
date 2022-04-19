@@ -18,31 +18,23 @@ function RevealStage({ state }: { state: GameState }) {
 					recycle={false}
 				/>
 			)}
-			<div className="grid grid-cols-3 mb-4 place-items-center">
+			<div className="flex items-center justify-center mb-4 place-items-center">
 				<div>
-					<ActionCard
-						front={
-							<>
-								{state.player1Pick?.icon}
-								<div className="sr-only">
-									{state.config?.player1.name} picked {state.player1Pick?.name}
-								</div>
-							</>
-						}
-					/>
+					<div className="text-[0.5rem] sm:text-xs font-bold text-center">
+						{state.config?.player1.name} picked{" "}
+						<span className="sr-only">{state.player1Pick?.name}</span>
+					</div>
+					<ActionCard front={state.player1Pick?.icon} />
 				</div>
-				<div className="px-10 text-3xl italic font-bold text-center">VS</div>
+				<div className="px-6 text-xl italic font-bold text-center sm:px-10 sm:text-3xl">
+					VS
+				</div>
 				<div>
-					<ActionCard
-						front={
-							<>
-								{state.player2Pick?.icon}
-								<div className="sr-only">
-									{state.config?.player2.name} picked {state.player2Pick?.name}
-								</div>
-							</>
-						}
-					/>
+					<div className="text-[0.5rem] sm:text-xs font-bold text-center">
+						{state.config?.player2.name} picked{" "}
+						<span className="sr-only">{state.player2Pick?.name}</span>
+					</div>
+					<ActionCard front={state.player2Pick?.icon} />
 				</div>
 			</div>
 
