@@ -17,7 +17,10 @@ function DarkModeButton() {
 	}, [darkMode])
 
 	return (
-		<SecondaryButton onClick={() => setdarkMode(!darkMode)}>
+		<SecondaryButton
+			title="Toggle dark mode"
+			onClick={() => setdarkMode(!darkMode)}
+		>
 			<FontAwesomeIcon icon={darkMode ? faMoon : faSun} />
 		</SecondaryButton>
 	)

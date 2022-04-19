@@ -4,13 +4,15 @@ import { useSpring, animated } from "@react-spring/web"
 function ActionCard({
 	onClick,
 	front,
-	back = "♦️",
+	back,
 	flipped,
+	onClickTitle,
 }: {
 	onClick?: () => void
 	front: React.ReactNode
 	back?: React.ReactNode
 	flipped?: boolean
+	onClickTitle?: string
 }) {
 	const Element = onClick ? "button" : "div"
 
@@ -29,20 +31,23 @@ function ActionCard({
 				onClick ? "cursor-pointer" : "cursor-default"
 			)}
 			onClick={onClick}
+			title={onClickTitle}
 		>
-			<animated.div
-				style={{
-					opacity: opacity.to({
-						range: [0, 0.5, 0.51, 1],
-						output: [0, 0, 1, 1],
-					}),
-					transform,
-					rotateY: "180deg",
-				}}
-				className={className}
-			>
-				{back}
-			</animated.div>
+			{typeof back !== "undefined" && (
+				<animated.div
+					style={{
+						opacity: opacity.to({
+							range: [0, 0.5, 0.51, 1],
+							output: [0, 0, 1, 1],
+						}),
+						transform,
+						rotateY: "180deg",
+					}}
+					className={className}
+				>
+					{back}
+				</animated.div>
+			)}
 			<animated.div
 				style={{
 					opacity: opacity.to({

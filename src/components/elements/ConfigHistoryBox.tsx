@@ -1,6 +1,8 @@
 import classNames from "../../util/classNames"
 import { ConfigHistory, GameConfiguration } from "../../types/Game.types"
 import evaluateConfigHistory from "../../helpers/evaluateConfigHistory"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons"
 
 function ConfigHistoryBox({
 	history,
@@ -32,7 +34,7 @@ function ConfigHistoryBox({
 				</div>
 			</div>
 			<div className="grid grid-cols-4 gap-2 text-center sm:gap-4">
-				<div className="flex flex-col items-center justify-center px-1 py-2 shadow sm:px-2 bg-slate-50 rounded-xl dark:bg-slate-800">
+				<div className="flex flex-col items-center px-1 py-2 shadow sm:px-2 bg-slate-50 rounded-xl dark:bg-slate-800">
 					<h2 className="text-[0.5rem] sm:text-[0.6rem] font-light">
 						{config.player1.name}
 					</h2>
@@ -47,12 +49,12 @@ function ConfigHistoryBox({
 					</p>
 				</div>
 
-				<div className="flex flex-col items-center justify-center px-1 py-2 shadow sm:px-2 bg-slate-50 rounded-xl dark:bg-slate-800">
+				<div className="flex flex-col items-center px-1 py-2 shadow sm:px-2 bg-slate-50 rounded-xl dark:bg-slate-800">
 					<h2 className="text-[0.5rem] sm:text-[0.6rem] font-light">Ties</h2>
 					<p className="text-lg font-bold">{evaluatedHistory.ties}</p>
 				</div>
 
-				<div className="flex flex-col items-center justify-center px-1 py-2 shadow sm:px-2 bg-slate-50 rounded-xl dark:bg-slate-800">
+				<div className="flex flex-col items-center px-1 py-2 shadow sm:px-2 bg-slate-50 rounded-xl dark:bg-slate-800">
 					<h2 className="text-[0.5rem] sm:text-[0.6rem] font-light">
 						{config.player2.name}
 					</h2>
@@ -68,13 +70,16 @@ function ConfigHistoryBox({
 				</div>
 
 				<button
-					className="flex flex-col items-center justify-center px-1 py-2 transition-all shadow sm:px-2 bg-slate-50 hover:bg-red-300 dark:hover:bg-red-300 hover:text-red-900 rounded-xl dark:bg-slate-800 hover:shadow-xl hover:scale-105"
+					className="flex flex-col items-center px-1 py-2 transition-all shadow group sm:px-2 bg-slate-50 hover:bg-red-300 dark:hover:bg-red-300 hover:text-red-900 rounded-xl dark:bg-slate-800 hover:shadow-xl hover:scale-105"
 					onClick={resetConfigHistory}
-					title="Reset history"
 				>
 					<div className="text-[0.5rem] sm:text-[0.6rem] font-light">
 						Reset History
 					</div>
+					<FontAwesomeIcon
+						icon={faCircleXmark}
+						className="mt-1 transition-colors text-slate-300 dark:text-slate-700 group-hover:text-red-900"
+					/>
 				</button>
 			</div>
 		</div>

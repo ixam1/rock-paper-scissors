@@ -5,6 +5,7 @@ function GithubButton() {
 			href="https://github.com/ixam1/rock-paper-scissors"
 			target="_blank"
 			rel="noopener noreferrer"
+			title="View source on GitHub"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

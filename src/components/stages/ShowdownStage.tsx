@@ -36,22 +36,45 @@ function ShowdownStage({
 		if (countDown === -1 || noActionIsHidden) determineWinner()
 	}, [countDown])
 
+	const card1IsFlipped = !!(state.config?.player1.hideUntilReveal && countDown)
+	const card2IsFlipped = !!(state.config?.player2.hideUntilReveal && countDown)
+
 	return (
 		<>
 			<div className="grid grid-cols-3 place-items-center">
 				<div>
 					<ActionCard
-						front={state.player1Pick?.icon}
+						front={
+							!card1IsFlipped && (
+								<>
+									{state.player1Pick?.icon}
+									<div className="sr-only">
+										{state.config?.player1.name} picked{" "}
+										{state.player1Pick?.name}
+									</div>
+								</>
+							)
+						}
 						back={countDown}
-						flipped={!!(state.config?.player1.hideUntilReveal && countDown)}
+						flipped={card1IsFlipped}
 					/>
 				</div>
 				<div className="px-10 text-3xl italic font-bold text-center">VS</div>
 				<div>
 					<ActionCard
-						front={state.player2Pick?.icon}
+						front={
+							!card2IsFlipped && (
+								<>
+									{state.player2Pick?.icon}
+									<div className="sr-only">
+										{state.config?.player1.name} picked{" "}
+										{state.player2Pick?.name}
+									</div>
+								</>
+							)
+						}
 						back={countDown}
-						flipped={!!(state.config?.player2.hideUntilReveal && countDown)}
+						flipped={card2IsFlipped}
 					/>
 				</div>
 			</div>

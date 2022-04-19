@@ -20,7 +20,7 @@ function Game() {
 		<Layout>
 			<div className="flex justify-between gap-2 mb-2 sm:mb-4">
 				{game.state.stage !== "config" ? (
-					<SecondaryButton onClick={game.resetConfig}>
+					<SecondaryButton title="Go back to home" onClick={game.resetConfig}>
 						<FontAwesomeIcon icon={faHome} />
 					</SecondaryButton>
 				) : (

@@ -20,11 +20,29 @@ function RevealStage({ state }: { state: GameState }) {
 			)}
 			<div className="grid grid-cols-3 mb-4 place-items-center">
 				<div>
-					<ActionCard front={state.player1Pick?.icon} />
+					<ActionCard
+						front={
+							<>
+								{state.player1Pick?.icon}
+								<div className="sr-only">
+									{state.config?.player1.name} picked {state.player1Pick?.name}
+								</div>
+							</>
+						}
+					/>
 				</div>
 				<div className="px-10 text-3xl italic font-bold text-center">VS</div>
 				<div>
-					<ActionCard front={state.player2Pick?.icon} />
+					<ActionCard
+						front={
+							<>
+								{state.player2Pick?.icon}
+								<div className="sr-only">
+									{state.config?.player2.name} picked {state.player2Pick?.name}
+								</div>
+							</>
+						}
+					/>
 				</div>
 			</div>
 
