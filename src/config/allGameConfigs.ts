@@ -1,6 +1,6 @@
 import { GameConfiguration } from "../types/Game.types"
-import lizardSpockExtension from "./actions/lizardSpockExtension"
-import rockPaperScissors from "./actions/rockPaperScissors"
+import lizardSpockExtension from "./actionSets/lizardSpockExtension"
+import rockPaperScissors from "./actionSets/rockPaperScissors"
 import computer from "./players/computer"
 import human from "./players/human"
 
